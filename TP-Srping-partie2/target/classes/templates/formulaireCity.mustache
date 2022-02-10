@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Modification de la ville</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+		<h1>Modification de la ville</h1>
+                <p>Modifier les champs puis cliquer sur "Enregistrer la ville" pour valider</p>
+		<form method="post" action="save">
+			<div class="column">
+				<label for="id">Code:</label>
+				<input type="text" name="id" 
+					{{#categorie.id}} value="{{categorie.id}}" {{/categorie.id}}
+					disabled="disabled" placeholder="auto-généré, nom modifiable"/>
+				<input type="submit" value="Enregistrer" /> <input type="reset" value="Réinitialiser" />
+			</div>
+			<div class="column">
+
+				<label for="nom">Nom de la Ville</label>
+				<input type="text" name="nom" 
+					{{#city.nom}} value="{{city.nom}}" {{/city.nom}}
+					
+			
+				<label for="population">Population</label>
+				<input type="text" name="population"
+					{{#city.population}} value="{{city.population}}" {{/city.population}}
+					
+
+                                <label for="country">Pays</label>
+                                <select name="country"  id="countrySelector">
+                                {{#countries}} {{! Une option par pays}}
+                                    <option value="{{id}}">{{name}}</option>
+                                {{/countries}}
+                                </select>
+
+			</div>
+		</form>	
+		<hr/>
+		<a href="/">Retour au menu</a>
+		<hr/>	
+
+</body>
+</html>
